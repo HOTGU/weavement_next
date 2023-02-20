@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+const { fontFamily } = require("tailwindcss/defaultTheme");
+/** @type {import('tailwindcss').Config} \*/
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -6,7 +7,23 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "3rem",
+        xl: "4rem",
+      },
+    },
+    extend: {
+      colors: {
+        "accent-color": "#7B191E",
+      },
+      fontFamily: {
+        pretendard: ["var(--font-pretendard)"],
+      },
+    },
   },
   plugins: [],
 };

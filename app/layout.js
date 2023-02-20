@@ -1,14 +1,21 @@
-import './globals.css'
+import "./globals.css";
+import localFont from "@next/font/local";
+import Nav from "./Nav";
+
+const pretendard = localFont({
+  src: "../public/fonts/Pretendard-Regular.woff2",
+  variable: "--font-pretendard",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      {/* <body className={`text-gray-800 font-pretendard `}> */}
+      <body className={`text-gray-800 ${pretendard.variable} font-pretendard`}>
+        <Nav />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
