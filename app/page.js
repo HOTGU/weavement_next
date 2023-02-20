@@ -9,7 +9,6 @@ export default function Home() {
           <Image src={LogoImg} placeholder="blur" objectFit="cover" />
         </div>
         <div className="">감각적인 제조업체, 위브먼트</div>
-        <div className="">감각적인 제조업체</div>
       </div>
     </main>
   );
