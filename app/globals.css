@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply px-2 py-1 text-xs sm:px-4 sm:py-2 lg:px-6 sm:text-base lg:text-lg rounded-2xl bg-accent-color text-white hover:bg-red-800 cursor-pointer transition-colors;
+  }
+}

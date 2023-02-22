@@ -23,6 +23,9 @@ module.exports = {
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
       },
+      aspectRatio: {
+        thumb: "2 / 1",
+      },
     },
   },
   plugins: [],
