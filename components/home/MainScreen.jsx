@@ -5,13 +5,13 @@ import LogoImg from "../../public/logo.webp";
 function MainScreen() {
   return (
     <div className="flex flex-col justify-center items-center text-accent-color my-14 sm:my-24 lg:my-32">
-      <div className="relative w-28 sm:w-40 lg:w-48 ">
+      <div className="relative w-28 sm:w-40 lg:w-60 mb-2 lg:mb-4">
         <Image src={LogoImg} placeholder="blur" />
       </div>
       <div className="font-bold text-xs sm:text-lg lg:text-3xl ">
         본질에 충실한 제품과 서비스가 필요하세요?
       </div>
-      <h1 className="font-thin text-xs sm:text-md lg:text-xl ">
+      <h1 className="font-thin text-xs sm:text-md lg:text-xl mb-2 lg:mb-4 ">
         감각적인 제조 업체, 위브먼트
       </h1>
       <div className="btn-primary">문의하기</div>

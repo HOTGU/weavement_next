@@ -22,9 +22,11 @@ module.exports = {
       },
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
+        racingSans: ["var(--font-racingSans)"],
       },
       aspectRatio: {
         thumb: "2 / 1",
+        "phone-thumb": "4 / 3",
       },
     },
   },

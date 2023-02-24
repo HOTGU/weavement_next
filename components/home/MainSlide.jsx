@@ -5,6 +5,7 @@ import useSWR from "swr";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "react-feather";
+import Loader from "../config/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const DELAY = 3000;
@@ -47,36 +48,49 @@ function MainSlide() {
   }, [currentImg]);
 
   if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading</div>;
 
   return (
-    <div className={`relative max-w-screen-lg mx-auto aspect-thumb`}>
-      {data.map((portfolio, index) => {
-        return (
-          <span key={portfolio.id}>
-            <Link href={`/portfolio/${portfolio.id}`}>
-              <div
-                className={`absolute w-full h-full transition-opacity ${
-                  currentImg === index + 1 ? "opacity-100" : "opacity-0"
-                } `}
-              >
-                <Image
-                  src={portfolio.thumb}
-                  layout="fill"
-                  objectFit="cover"
-                  placeholder="empty"
-                />
-              </div>
-            </Link>
-          </span>
-        );
-      })}
-      <div className="absolute right-0 inset-y-1/2 circle" onClick={forward}>
-        <ChevronRight />
-      </div>
-      <div className="absolute left-0 inset-y-1/2 circle" onClick={back}>
-        <ChevronLeft />
-      </div>
+    <div
+      className={`relative max-w-screen-xl mx-auto aspect-phone-thumb lg:aspect-thumb`}
+    >
+      {data ? (
+        <>
+          {data.map((portfolio, index) => {
+            return (
+              <span key={portfolio.id}>
+                <Link href={`/portfolio/${portfolio.id}`}>
+                  <div
+                    className={`absolute w-full h-full transition-opacity ${
+                      currentImg === index + 1 ? "opacity-100" : "opacity-0"
+                    } `}
+                  >
+                    <Image
+                      src={portfolio.thumb}
+                      layout="fill"
+                      objectFit="cover"
+                      placeholder="empty"
+                    />
+                  </div>
+                </Link>
+              </span>
+            );
+          })}
+          <div
+            className="absolute right-1 lg:right-2 top-1/2 transform -translate-y-1/2 circle"
+            onClick={forward}
+          >
+            <ChevronRight />
+          </div>
+          <div
+            className="absolute left-1 lg:left-2 top-1/2 transform -translate-y-1/2 circle"
+            onClick={back}
+          >
+            <ChevronLeft />
+          </div>
+        </>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }
