@@ -6,12 +6,11 @@ import { usePathname } from "next/navigation";
 
 function Nav() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <nav className="fixed w-full flex justify-center items-center gap-4 h-12 top-0 bg-accent-color text-white font-bold z-50">
       <Link
         className={`${
-          pathname === "/" && "bg-white text-accent-color px-3 py-1 rounded-lg"
+          pathname === "/" && "bg-white text-accent-color px-2 py-1 rounded-lg"
         } `}
         href="/"
       >
@@ -20,7 +19,7 @@ function Nav() {
       <Link
         className={`${
           pathname === "/contact" &&
-          "bg-white text-accent-color px-3 py-1 rounded-lg"
+          "bg-white text-accent-color px-2 py-1 rounded-lg"
         } `}
         href="/contact"
       >
@@ -29,7 +28,7 @@ function Nav() {
       <Link
         className={`${
           pathname === "/portfolio" &&
-          "bg-white text-accent-color px-3 py-1 rounded-lg"
+          "bg-white text-accent-color px-2 py-1 rounded-lg"
         } `}
         href="/portfolio"
       >

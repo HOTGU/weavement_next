@@ -51,29 +51,33 @@ function MainSlide() {
 
   return (
     <>
-      <div className="font-head text-accent-color">Portfolio</div>
+      <div className="font-head px-1 md:px-2 lg:px-3 text-accent-color flex justify-between">
+        Portfolio
+      </div>
       <div className="relative w-full h-full">
         {data ? (
           <>
             {data.map((portfolio, index) => {
               return (
-                <span key={portfolio.id}>
+                <Link
+                  href={`/portfolio/${portfolio.id}`}
+                  target="_blank"
+                  key={portfolio.id}
+                >
                   <div
-                    className={`absolute max-w-screen w-full h-full transition-opacity ${
+                    className={`absolute max-w-screen w-full h-full transition-opacity overflow-hidden lg:rounded-md ${
                       currentImg === index + 1 ? "opacity-100" : "opacity-0"
                     } `}
                   >
-                    <Link href={`/portfolio/${portfolio.id}`} target="_blank">
-                      <Image
-                        src={portfolio.thumb}
-                        layout="fill"
-                        objectFit="cover"
-                        sizes="200vw"
-                        quality={100}
-                      />
-                    </Link>
+                    <Image
+                      src={portfolio.thumb}
+                      layout="fill"
+                      objectFit="cover"
+                      quality={100}
+                      priority={true}
+                    />
                   </div>
-                </span>
+                </Link>
               );
             })}
             <div

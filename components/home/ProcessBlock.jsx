@@ -4,7 +4,7 @@ import React from "react";
 const ProcessBlock = ({ img, title, desc }) => {
   return (
     <div className="flex-1 flex lg:flex-col bg-secondary-color px-2 py-4 md:px-4 md:py-4 xl:px-4 xl:py-8 rounded-md">
-      <div className=" self-center w-1/4 lg:w-32 lg:pb-14">
+      <div className=" self-center w-1/4 lg:w-40 lg:pb-14">
         <Image src={img} placeholder="blur" quality={100} />
       </div>
       <div className=" flex flex-col w-3/4 lg:w-full justify-center">

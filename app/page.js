@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <MainScreen />
-      <div className=" bg-secondary-color py-24">
+      <div className=" bg-secondary-color py-8 md:py-12 xl:py-24">
         <div className="max-w-screen lg:default-container aspect-thumb">
           <MainSlide />
         </div>
