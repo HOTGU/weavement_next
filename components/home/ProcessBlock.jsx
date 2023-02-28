@@ -11,7 +11,7 @@ const ProcessBlock = ({ img, title, desc }) => {
         <div className="text-lg md:text-xl xl:text-2xl font-bold mb-1 md:mb-3 text-accent-color">
           {title}
         </div>
-        <div className="text-xs md:text-sm lg:text-xs xl:text-sm font-thin whitespace-pre-line break-keep">
+        <div className="text-xs md:text-sm lg:text-xs xl:text-sm font-bold whitespace-pre-line break-keep">
           {desc}
         </div>
       </div>

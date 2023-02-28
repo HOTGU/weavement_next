@@ -15,6 +15,9 @@
   .circle {
     @apply w-5 h-5 lg:w-8 lg:h-8 text-sm flex justify-center items-center rounded-full bg-accent-color text-white cursor-pointer hover:bg-red-800 transition-colors;
   }
+  .font-head {
+    @apply font-bold font-racingSans text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-8 xl:mb-12;
+  }
   .default-container {
     @apply max-w-screen w-full px-1 md:px-2 lg:px-3 mx-auto text-sm sm:text-base lg:text-lg;
   }

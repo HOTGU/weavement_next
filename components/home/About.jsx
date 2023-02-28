@@ -8,9 +8,7 @@ import AboutImg3 from "../../public/about3.png";
 const About = () => {
   return (
     <>
-      <div className="font-bold font-racingSans text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-8 xl:mb-10 text-accent-color">
-        About Us
-      </div>
+      <div className="font-head text-accent-color">About Us</div>
       <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center mb-4 md:mb-6 lg:mb-8">
         <div className="relative w-3/4 md:w-5/12">
           <Image src={AboutImg1} placeholder="blur" />

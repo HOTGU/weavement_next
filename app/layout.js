@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         className={`text-gray-800 ${pretendard.variable} ${racingSans.variable} font-pretendard`}
       >
         <Nav />
-        <div className="pt-12">{children}</div>
+        <div className="pt-12 min-h-screen">{children}</div>
         <Footer />
       </body>
     </html>

@@ -10,9 +10,7 @@ import ProcessBlock from "./ProcessBlock";
 const Process = () => {
   return (
     <>
-      <div className="font-bold font-racingSans text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-12 xl:mb-18 text-accent-color">
-        Process
-      </div>
+      <div className="font-head text-accent-color">Process</div>
       <div className="flex flex-col lg:flex-row gap-2 md:gap-3 xl:gap-4">
         <ProcessBlock
           img={Img1}
