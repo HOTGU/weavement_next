@@ -14,7 +14,7 @@ function MainScreen() {
       <h1 className="font-thin text-xs sm:text-md lg:text-xl mb-2 lg:mb-4 ">
         감각적인 제조 업체, 위브먼트
       </h1>
-      <div className="btn-primary">문의하기</div>
+      <div className="btn btn-primary">문의하기</div>
     </div>
   );
 }

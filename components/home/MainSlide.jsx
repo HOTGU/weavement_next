@@ -50,28 +50,27 @@ function MainSlide() {
   if (error) return <div>Failed to load</div>;
 
   return (
-    <div
-      className={`relative max-w-screen-xl mx-auto aspect-phone-thumb lg:aspect-thumb`}
-    >
+    <div className="relative w-full h-full">
       {data ? (
         <>
           {data.map((portfolio, index) => {
             return (
               <span key={portfolio.id}>
-                <Link href={`/portfolio/${portfolio.id}`}>
-                  <div
-                    className={`absolute w-full h-full transition-opacity ${
-                      currentImg === index + 1 ? "opacity-100" : "opacity-0"
-                    } `}
-                  >
+                <div
+                  className={`absolute max-w-screen w-full h-full transition-opacity ${
+                    currentImg === index + 1 ? "opacity-100" : "opacity-0"
+                  } `}
+                >
+                  <Link href={`/portfolio/${portfolio.id}`} target="_blank">
                     <Image
                       src={portfolio.thumb}
                       layout="fill"
                       objectFit="cover"
-                      placeholder="empty"
+                      sizes="200vw"
+                      quality={100}
                     />
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </span>
             );
           })}
@@ -87,6 +86,12 @@ function MainSlide() {
           >
             <ChevronLeft />
           </div>
+          {/* <Link
+            href="/portfolio"
+            className="absolute bottom-1 lg:bottom-2 left-1/2 transform -translate-x-1/2 btn-primary"
+          >
+            포트폴리오 더보기
+          </Link> */}
         </>
       ) : (
         <Loader />

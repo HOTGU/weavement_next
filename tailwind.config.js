@@ -19,14 +19,19 @@ module.exports = {
     extend: {
       colors: {
         "accent-color": "#7B191E",
+        "secondary-color": "rgba(192, 156, 131, 0.2)",
       },
       fontFamily: {
         pretendard: ["var(--font-pretendard)"],
         racingSans: ["var(--font-racingSans)"],
+        notoSans: ["var(--font-notoSans)"],
       },
       aspectRatio: {
-        thumb: "2 / 1",
+        thumb: "5 / 3",
         "phone-thumb": "4 / 3",
+      },
+      maxWidth: {
+        screen: "1440px",
       },
     },
   },

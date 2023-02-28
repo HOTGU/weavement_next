@@ -3,13 +3,15 @@ import React from "react";
 
 const ProcessBlock = ({ img, title, desc }) => {
   return (
-    <div className="flex flex-col py-1 px-4 border-r border-gray-200">
-      <div className=" self-center w-3/4 pb-14">
+    <div className="flex-1 flex lg:flex-col bg-secondary-color px-2 py-4 md:px-4 md:py-4 xl:px-4 xl:py-8 rounded-md">
+      <div className=" self-center w-1/4 lg:w-32 lg:pb-14">
         <Image src={img} placeholder="blur" quality={100} />
       </div>
-      <div className=" flex flex-col justify-center">
-        <div className=" text-xl font-bold mb-3 text-accent-color">{title}</div>
-        <div className=" text-xs font-thin whitespace-pre-line break-keep">
+      <div className=" flex flex-col w-3/4 lg:w-full justify-center">
+        <div className="text-lg md:text-xl xl:text-2xl font-bold mb-1 md:mb-3 text-accent-color">
+          {title}
+        </div>
+        <div className="text-xs md:text-sm lg:text-xs xl:text-sm font-thin whitespace-pre-line break-keep">
           {desc}
         </div>
       </div>
