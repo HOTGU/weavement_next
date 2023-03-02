@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center md:items-start gap-0 md:gap-1">
-            <div className="flex items-center text-xl md:text-2xl lg:text-3xl font-bold gap-1 md:gap-2">
+            <div className="flex items-center text-xl md:text-2xl lg:text-3 xl font-bold gap-1 md:gap-2">
               <Phone size={20} />
               <div>010 . 6803 . 7181</div>
             </div>

@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       colors: {
         "accent-color": "#7B191E",
+        "accent-hover": "rgba(166,25,46,0.3)",
         "secondary-color": "rgba(192, 156, 131, 0.2)",
       },
       fontFamily: {
