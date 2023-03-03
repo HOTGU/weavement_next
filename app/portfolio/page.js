@@ -3,8 +3,6 @@ import PortfolioLoader from "@/components/portfolio/PortfolioLoader";
 import { Suspense } from "react";
 
 export default async function Home() {
-  const portfolios = await getPortfolios();
-
   return (
     <main className="default-container">
       <div className="flex flex-col justify-center items-center gap-2 md:gap-3 lg:gap-4 pt-6 pb-8 md:pt-8 md:pb-11 lg:pt-10 lg:pb-14">
