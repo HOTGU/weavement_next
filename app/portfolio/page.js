@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 const getPortfolios = async () => {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_VERCEL_APP + `/api/portfolio`,
+    `https://` + process.env.NEXT_PUBLIC_VERCEL_APP + `/api/portfolio`,
     { cache: "no-store" }
   );
   const data = res.json();
