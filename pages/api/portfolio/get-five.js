@@ -1,10 +1,10 @@
-import dbConncet from "@/utils/dbConncet";
 import Portfolio from "@/models/Portfolio";
 import nc from "next-connect";
+import { dbConnectMiddleware } from "@/utils/middleware";
 
 const handler = nc();
 
-handler.use(dbConncet);
+handler.use(dbConnectMiddleware);
 
 handler.get(async (req, res) => {
   try {

@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
-export default async (req, res, next) => {
-  if (!global.mongoose) {
-    console.log(`👌db 새로연결`);
-    global.mongoose = await mongoose.connect(process.env.MONGO_URL);
+const connection = {};
+
+async function dbConnect() {
+  if (connection.isConnected) {
+    return;
   }
-  console.log(`👌db 연결성공`);
-  next();
-};
+
+  const db = await mongoose.connect(process.env.MONGO_URL);
+  connection.isConnected = db.connections[0].readyState;
+}
+
+export default dbConnect;

@@ -1,7 +1,9 @@
 import { atom } from "jotai";
 
 const fetchPortfolios = async (page) => {
-  const res = await fetch(`http://localhost:3000/api/portfolio?page=${page}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_DOMAIN}/api/portfolio/fetch-by-page?page=${page}`
+  );
   const json = await res.json();
   return json;
 };

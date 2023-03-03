@@ -1,26 +1,36 @@
 "use client";
 
-import {
-  containerSizeAtom,
-  currentPageAtom,
-  currentPageContainerAtom,
-  portfoliosData,
-} from "@/storage/pageAtom";
-import { useAtom, useAtomValue } from "jotai";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
+import useSWR from "swr";
 import PortfolioCard from "./PortfolioCard";
+import PortfolioLoader from "./PortfolioLoader";
+
+const fetcher = async (...args) => {
+  const [url, page] = args;
+  const res = await fetch(`${url}?page=${page}`);
+  return await res.json();
+};
+
+const CONTAINER_SIZE = 5;
 
 const PortfolioList = () => {
-  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
-  const [{ portfolios, totalPage }] = useAtom(portfoliosData);
-  const containerSize = useAtomValue(containerSizeAtom);
-  const currentPageContainer = useAtomValue(currentPageContainerAtom);
+  const [page, setPage] = useState(1);
+  const [container, setContainer] = useState(Math.ceil(page / CONTAINER_SIZE));
+  const { data, isLoading } = useSWR(
+    [`/api/portfolio/fetch-by-page`, page],
+    ([url, page]) => fetcher(url, page)
+  );
 
+  useEffect(() => {
+    setContainer(Math.ceil(page / CONTAINER_SIZE));
+  }, [page]);
+
+  if (isLoading) return <PortfolioLoader />;
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-10 ">
-        {portfolios.map((portfolio) => {
+        {data?.portfolios.map((portfolio) => {
           return (
             <div
               className=" overflow-hidden w-full rounded-md"
@@ -32,11 +42,11 @@ const PortfolioList = () => {
         })}
       </div>
       <div className="flex justify-center items-center gap-2 my-8">
-        {currentPageContainer > 1 && (
+        {container > 1 && (
           <div
             className="text-accent-color cursor-pointer"
             onClick={() => {
-              setCurrentPage((currentPageContainer - 1) * containerSize);
+              setPage((container - 1) * CONTAINER_SIZE);
               window.scrollTo({
                 top: 0,
                 behavior: "smooth",
@@ -46,18 +56,18 @@ const PortfolioList = () => {
             <ChevronLeft />
           </div>
         )}
-        {[...Array(totalPage)].map((e, i) => {
+        {[...Array(data?.totalPage)].map((e, i) => {
           const mapPage = i + 1;
-          if (Math.ceil(mapPage / containerSize) === currentPageContainer) {
+          if (Math.ceil(mapPage / CONTAINER_SIZE) === container) {
             return (
               <div
                 className={`${
-                  currentPage === mapPage
+                  page === mapPage
                     ? "bg-accent-color text-white"
                     : "bg-secondary-color"
                 } px-4 rounded-md cursor-pointer`}
                 onClick={() => {
-                  setCurrentPage(mapPage);
+                  setPage(mapPage);
                   window.scrollTo({
                     top: 0,
                     behavior: "smooth",
@@ -70,11 +80,11 @@ const PortfolioList = () => {
             );
           }
         })}
-        {Math.ceil(totalPage / containerSize) > currentPageContainer && (
+        {Math.ceil(data?.totalPage / CONTAINER_SIZE) > container && (
           <div
             className="text-accent-color cursor-pointer"
             onClick={() => {
-              setCurrentPage(currentPageContainer * containerSize + 1);
+              setPage(container * containerSize + 1);
               window.scrollTo({
                 top: 0,
                 behavior: "smooth",
