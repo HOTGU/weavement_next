@@ -14,9 +14,6 @@ export default async function Home() {
           제공합니다.
         </div>
       </div>
-      {portfolios.map((portfolio) => (
-        <div key={portfolio._id}>{portfolio.rep.title}</div>
-      ))}
       <Suspense fallback={<PortfolioLoader />}>
         <PortfolioList />
       </Suspense>
