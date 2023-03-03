@@ -1,15 +1,15 @@
-import Portfolio from "@/models/Portfolio";
+import { getPortfolioById } from "@/lib/mongoose/portfolio";
 import nc from "next-connect";
-import { dbConnectMiddleware } from "@/utils/middleware";
 
 const handler = nc();
 
-handler.use(dbConnectMiddleware);
-
 handler.get(async (req, res) => {
+  const {
+    query: { portfolioId },
+  } = req;
   try {
-    const portfolios = await Portfolio.find({});
-    return res.status(200).json(portfolios);
+    const portfolio = await getPortfolioById(portfolioId);
+    return res.status(200).json(portfolio);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "portfolio fetch error" });

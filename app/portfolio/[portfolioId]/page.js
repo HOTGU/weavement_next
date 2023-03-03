@@ -1,24 +1,25 @@
-import Portfolio from "@/models/Portfolio";
-import dbConnect from "@/utils/dbConncet";
+import { getPortfolioById } from "@/lib/mongoose/portfolio";
 import React from "react";
 
-// const getPortfolio =  async(id)=>{
-//   const res = await fetch(``)
-// };
+const PortfolioDetail = async ({ params: { portfolioId } }) => {
+  const portfolio = await getPortfolioById(portfolioId);
 
-const PortfolioDetail = ({ params: { portfolioId } }) => {
-  console.log(portfolioId);
-  return <div>PortfolioDetail</div>;
+  console.log(portfolio);
+
+  return (
+    <div className="default-container">
+      {portfolio.columns.map((column) => {
+        return <></>;
+      })}
+    </div>
+  );
 };
 
 export default PortfolioDetail;
 
-// export async function generateStaticParams() {
-//   await dbConnect();
-//   const portfolios = await Portfolio.find({});
-//   return portfolios.map((portfolio) => {
-//     return {
-//       portfolioId: String(portfolio._id),
-//     };
-//   });
-// }
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  rumtime = "nodejs",
+  preferredRegin = "auto";

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import Image from "next/legacy/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Loader from "../config/Loader";
@@ -74,6 +75,7 @@ function MainSlide() {
                       layout="fill"
                       objectFit="cover"
                       quality={100}
+                      // sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw"
                       priority={true}
                     />
                   </div>
