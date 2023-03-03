@@ -2,15 +2,6 @@ import PortfolioList from "@/components/portfolio/PortfolioList";
 import PortfolioLoader from "@/components/portfolio/PortfolioLoader";
 import { Suspense } from "react";
 
-const getPortfolios = async () => {
-  const res = await fetch(
-    `https://` + process.env.NEXT_PUBLIC_VERCEL_APP + `/api/portfolio`,
-    { cache: "no-store" }
-  );
-  const data = res.json();
-  return data;
-};
-
 export default async function Home() {
   const portfolios = await getPortfolios();
 
@@ -28,9 +19,9 @@ export default async function Home() {
       {portfolios.map((portfolio) => (
         <div key={portfolio._id}>{portfolio.rep.title}</div>
       ))}
-      {/* <Suspense fallback={<PortfolioLoader />}>
+      <Suspense fallback={<PortfolioLoader />}>
         <PortfolioList />
-      </Suspense> */}
+      </Suspense>
     </main>
   );
 }
