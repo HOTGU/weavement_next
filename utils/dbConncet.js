@@ -9,6 +9,7 @@ async function dbConnect() {
   }
 
   console.log("👌 새로 DB 연결");
+  console.log(process.env.NODE_ENV);
   const db = await mongoose.connect(process.env.MONGO_URL);
   connection.isConnected = db.connections[0].readyState;
 }

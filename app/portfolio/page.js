@@ -2,7 +2,17 @@ import PortfolioList from "@/components/portfolio/PortfolioList";
 import PortfolioLoader from "@/components/portfolio/PortfolioLoader";
 import { Suspense } from "react";
 
+const getPortfolios = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_VERCEL_APP}/api/portfolio`
+  );
+  const json = await res.json();
+  return json;
+};
+
 export default async function Home() {
+  const portfolios = await getPortfolios();
+  console.log(portfolios);
   return (
     <main className="default-container">
       <div className="flex flex-col justify-center items-center gap-2 md:gap-3 lg:gap-4 pt-6 pb-8 md:pt-8 md:pb-11 lg:pt-10 lg:pb-14">
@@ -14,9 +24,12 @@ export default async function Home() {
           제공합니다.
         </div>
       </div>
-      <Suspense fallback={<PortfolioLoader />}>
+      {portfolios.map((portfolio) => {
+        return <h1>{portfolio.rep.title}</h1>;
+      })}
+      {/* <Suspense fallback={<PortfolioLoader />}>
         <PortfolioList />
-      </Suspense>
+      </Suspense> */}
     </main>
   );
 }
