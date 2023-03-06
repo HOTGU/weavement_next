@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/legacy/image";
 
-import AboutImg1 from "../../public/about1.png";
-import AboutImg2 from "../../public/about2.png";
-import AboutImg3 from "../../public/about3.png";
+import AboutImg1 from "../../public/about1.webp";
+import AboutImg2 from "../../public/about2.webp";
+import AboutImg3 from "../../public/about3.webp";
 
 const About = () => {
   return (
@@ -11,7 +11,11 @@ const About = () => {
       <div className="font-head text-accent-color">About Us</div>
       <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center mb-4 md:mb-6 lg:mb-8">
         <div className="relative w-3/4 md:w-5/12">
-          <Image src={AboutImg1} placeholder="blur" />
+          <Image
+            src={AboutImg1}
+            placeholder="blur"
+            sizes="(max-width:450px)100vw,(max-width:768px) 40vw, 40vw"
+          />
         </div>
         <div className="w-full md:w-7/12 text-xs md:text-base lg:text-xl xl:text-2xl text-center md:text-start">
           인류의 삶을 바꾼 산업혁명은 면직물 공업의 자동화로 시작되었습니다.

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import dbConnect from "./dbConncet";
+import dbConnect from "./dbConnect";
 
 export const dbConnectMiddleware = async (req, res, next) => {
   // if (!global.mongoose) {

@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import Image from "next/legacy/image";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import Loader from "../config/Loader";
@@ -75,8 +74,8 @@ function MainSlide() {
                       layout="fill"
                       objectFit="cover"
                       quality={100}
-                      // sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw"
-                      priority={true}
+                      // sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 100vw"
+                      // priority={true}
                     />
                   </div>
                 </Link>
@@ -94,12 +93,6 @@ function MainSlide() {
             >
               <ChevronLeft />
             </div>
-            {/* <Link
-            href="/portfolio"
-            className="absolute bottom-1 lg:bottom-2 left-1/2 transform -translate-x-1/2 btn-primary"
-          >
-            포트폴리오 더보기
-          </Link> */}
           </>
         ) : (
           <Loader />

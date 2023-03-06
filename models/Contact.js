@@ -14,7 +14,7 @@ const ContactSchema = mongoose.Schema(
     contactPath: { type: String, default: "홈페이지" },
     clientCompany: { type: String },
     clientName: { type: String },
-    clientPosition: { type: String },
+    clientPosition: { type: String, default: "님" },
     clientStartPhone: { type: String },
     clientMiddlePhone: { type: String },
     clientEndPhone: { type: String },
