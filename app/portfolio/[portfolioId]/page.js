@@ -23,7 +23,11 @@ export default PortfolioDetail;
 //   preferredRegin = "auto";
 
 export async function generateStaticParams() {
-  const data = await getAllPortfolios();
+  // const data = await getAllPortfolios();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_VERCEL_APP}/api/portfoilo`
+  );
+  const data = await res.json();
 
   return data.map((portfolio) => ({
     portfolioId: String(portfolio._id),
