@@ -11,7 +11,6 @@ const fetcher = async (...args) => {
 };
 
 const ContactList = () => {
-  //   const contacts = useAtomValue(getContactAtom);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState({
     year: "",
