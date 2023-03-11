@@ -13,9 +13,9 @@ handler.post(async (req, res) => {
   try {
     await dbConnect();
     const user = await User.findOne({ email });
-    if (!user) return res.redriect("/auth");
+    if (!user) return res.redirect("/auth");
     const checkPassword = bcrypt.compareSync(password, user.password);
-    if (!checkPassword) return res.redriect("/auth");
+    if (!checkPassword) return res.redirect("/auth");
     const {
       email: userEmail,
       password: userPassword,
@@ -28,7 +28,7 @@ handler.post(async (req, res) => {
     return res.redirect("/");
   } catch (error) {
     console.log(error);
-    return res.redriect("/auth");
+    return res.redirect("/auth");
   }
 });
 
