@@ -1,11 +1,11 @@
-import "./globals.css";
+import "../globals.css";
 import localFont from "@next/font/local";
 import { Racing_Sans_One } from "@next/font/google";
-import Nav from "../components/config/Nav";
 import Footer from "@/components/config/Footer";
+import Nav from "../../components/config/Nav";
 
 const pretendard = localFont({
-  src: "../public/fonts/Pretendard-Regular.woff2",
+  src: "../../public/fonts/Pretendard-Regular.woff2",
   variable: "--font-pretendard",
 });
 

@@ -2,7 +2,7 @@ import About from "@/components/home/About";
 import MainBottom from "@/components/home/MainBottom";
 import MainSlide from "@/components/home/MainSlide";
 import Process from "@/components/home/Process";
-import MainScreen from "../components/home/MainScreen";
+import MainScreen from "../../components/home/MainScreen";
 
 export default function Home() {
   return (

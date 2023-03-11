@@ -30,6 +30,7 @@ const ContactSchema = mongoose.Schema(
     pm: String,
     orderCompany: String,
     deadline: Date,
+    checkView: { type: Boolean, defulat: true },
   },
   {
     timestamps: true,

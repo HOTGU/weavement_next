@@ -1,4 +1,6 @@
 import { getAllPortfolios, getPortfolioById } from "@/lib/mongoose/portfolio";
+import Portfolio from "@/models/Portfolio";
+import dbConnect from "@/utils/dbConnect";
 import React from "react";
 
 const PortfolioDetail = async ({ params: { portfolioId } }) => {
@@ -28,9 +30,10 @@ const PortfolioDetail = async ({ params: { portfolioId } }) => {
 export default PortfolioDetail;
 
 export async function generateStaticParams() {
-  const data = await getAllPortfolios();
+  await dbConnect();
+  const portfolios = await Portfolio.find({});
 
-  return data.map((portfolio) => ({
+  return portfolios.map((portfolio) => ({
     portfolioId: String(portfolio._id),
   }));
 }
